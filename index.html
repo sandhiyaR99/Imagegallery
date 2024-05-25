@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Gallery</title>
+    <script src="
+https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/lib/index.min.js
+"></script>
+    <link href="
+https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css
+" rel="stylesheet">
+
+</head>
+
+<body id="box" class="flex gap-2 justify-center m-20">
+    <div class="cursor-pointer">
+        <p id="close1" class="text-right py-5 hidden">X</p><img src="https://picsum.photos/200/300/?" class="img1">
+    </div>
+    <div class="cursor-pointer">
+        <p id="close2" class="text-right py-5 hidden">X</p><img src="https://picsum.photos/200/300/?1" class="img2">
+    </div>
+    <div class="cursor-pointer">
+        <p id="close3" class="text-right py-5 hidden">X</p><img src="https://picsum.photos/200/300/" class="img3">
+    </div>
+
+    <script>
+        let box = document.getElementById("box")
+        let close1 = document.getElementById("close1")
+        let close2 = document.getElementById("close2")
+        let close3 = document.getElementById("close3")
+        let image1 = document.querySelector(".img1")
+        let image2 = document.querySelector(".img2")
+        let image3 = document.querySelector(".img3")
+        image1.addEventListener("click", () => {
+            image2.classList.add("hidden")
+            image3.classList.add("hidden")
+            box.classList.add("bg-gray-400")
+            close1.classList.remove("hidden")
+        })
+        close1.addEventListener("click", () => {
+            image2.classList.remove("hidden")
+            image3.classList.remove("hidden")
+            box.classList.remove("bg-gray-400")
+            close1.classList.add("hidden")
+        })
+
+        image2.addEventListener("click", () => {
+            image1.classList.add("hidden")
+            image3.classList.add("hidden")
+            box.classList.add("bg-gray-400")
+            close2.classList.remove("hidden")
+        })
+        close2.addEventListener("click", () => {
+            image1.classList.remove("hidden")
+            image3.classList.remove("hidden")
+            box.classList.remove("bg-gray-400")
+            close2.classList.add("hidden","text-right")
+        })
+
+        image3.addEventListener("click", () => {
+            image1.classList.add("hidden")
+            image2.classList.add("hidden")
+            box.classList.add("bg-gray-400")
+            close3.classList.remove("hidden")
+        })
+        close3.addEventListener("click", () => {
+            image1.classList.remove("hidden")
+            image2.classList.remove("hidden")
+            box.classList.remove("bg-gray-400")
+            close3.classList.add("hidden","text-right")
+        })
+    </script>
+</body>
+
+</html>
